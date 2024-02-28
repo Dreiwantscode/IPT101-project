@@ -2,9 +2,14 @@
 // Check if the form was submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve form data
+    $username = $_POST["username"];
+    $firstname = $_POST["firstname"];
+    $lastname = $_POST["lastname"];
+    $middlename = $_POST["middlename"];
     $email = $_POST["email"];
     $password = $_POST["password"];
     $confirm_password = $_POST["confirm_password"];
+    $status = $_POST["status"];
 
     // Perform form validation
     // (You should implement your own validation logic here)
@@ -19,6 +24,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $error = "Passwords do not match";
     }
 
+    // Validate names to not contain numbers
+    if (preg_match('/[0-9]/', $firstname) || preg_match('/[0-9]/', $middlename) || preg_match('/[0-9]/', $lastname)) {
+        $error = "First name, middle name, and last name should not contain numbers";
+    }
+
     // If no validation errors, proceed with registration
     if (!isset($error)) {
         // Perform registration process (e.g., insert user data into database)
@@ -28,6 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -53,6 +64,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <?php endif; ?>
                         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                             <div class="form-group">
+                                <label for="username">Username</label>
+                                <input type="text" name="username" id="username" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="firstname">First Name</label>
+                                <input type="text" name="firstname" id="firstname" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="middlename">Middle Name</label>
+                                <input type="text" name="middlename" id="middlename" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="lastname">Last Name</label>
+                                <input type="text" name="lastname" id="lastname" class="form-control" required>
+                            </div>
+                            <div class="form-group">
                                 <label for="email">Email Address</label>
                                 <input type="email" name="email" id="email" class="form-control" required>
                             </div>
@@ -63,6 +90,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <div class="form-group">
                                 <label for="confirm_password">Confirm Password</label>
                                 <input type="password" name="confirm_password" id="confirm_password" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="status">Status</label>
+                                <select name="status" id="status" class="form-control" required>
+                                    <option value="active">Active</option>
+                                    <option value="inactive">Inactive</option>
+                                </select>
                             </div>
                             <button type="submit" class="btn btn-primary">Register</button>
                         </form>
@@ -76,4 +110,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
 </body>
 </html>
-
