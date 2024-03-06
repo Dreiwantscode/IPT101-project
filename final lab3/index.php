@@ -21,12 +21,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             header("Location: login.php?error=Password is required");
             exit();
         } else {
-            $sql = "SELECT * FROM user WHERE username='$username' AND password='$password'";
-            $result = mysqli_query($conn, $sql);
-            if (mysqli_num_rows($result) === 1) {
-                $row = mysqli_fetch_assoc($result);
-                if ($row['username'] === $username && $row['password'] === $password) {
-                    echo "Logged in!";
+            $stmt = $conn->prepare("SELECT * FROM user WHERE username=?");
+            $stmt->bind_param("s", $username);
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            if ($result->num_rows === 1) {
+                $row = $result->fetch_assoc();
+                if (password_verify($password, $row['password'])) {
+                    session_regenerate_id();
                     $_SESSION['user_name'] = $row['username'];
                     $_SESSION['last_name'] = $row['Lastname'];
                     $_SESSION['first_name'] = $row['First_name'];
@@ -48,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $request = validate($_POST['request']);
 
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            header("Location: Login.php?error=Invalid email format");
+            header("Location: login.php?error=Invalid email format");
             exit();
         }
 
@@ -72,11 +75,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit();
         }
     } else {
-        header("Location: Loginform.php");
+        header("Location: loginform.php");
         exit();
     }
 } else {
-    header("Location: Loginform.php");
+    header("Location: loginform.php");
     exit();
 }
 ?>
