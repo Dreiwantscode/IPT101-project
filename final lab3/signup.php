@@ -56,12 +56,15 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
            <div class="form-group">
                 <label for="firstname">Firstname</label>
                 <input type="text" class="form-control" id="firstname" name="firstname" placeholder="Firstname">
+            </div>
             <div class="form-group">
                 <label for="lastname">Lastname</label>
                 <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Lastname">
+            </div>
             <div class="form-group">
                 <label for="middlename">Middle name</label>
                 <input type="text" class="form-control" id="middlename" name="middlename" placeholder="Middle name">
+            </div>
             <div class="form-group">
                 <label for="username">Username</label>
                 <input type="text" class="form-control" id="username" name="username" placeholder="Username">
@@ -77,6 +80,14 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
             <div class="form-group">
                 <label for="password2">Retype Password</label>
                 <input type="password" class="form-control" id="password2" name="password2" placeholder="Retype Password">
+            </div>
+            <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="terms" name="terms" required>
+                <label class="form-check-label" for="terms">I agree to the <a href="terms_and_conditions.html" target="_blank">Terms and Conditions</a></label>
+            </div>
+            <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="privacy_policy" name="privacy_policy" required>
+                <label class="form-check-label" for="privacy_policy">I agree to the <a href="privacy_policy.html" target="_blank">Privacy Policy</a></label>
             </div>
             <button type="submit" class="btn btn-primary">Signup</button>
         </form>
