@@ -53,6 +53,15 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
         </div>
 
         <form method="post">
+           <div class="form-group">
+                <label for="firstname">Firstname</label>
+                <input type="text" class="form-control" id="firstname" name="firstname" placeholder="Firstname">
+            <div class="form-group">
+                <label for="lastname">Lastname</label>
+                <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Lastname">
+            <div class="form-group">
+                <label for="middlename">Middle name</label>
+                <input type="text" class="form-control" id="middlename" name="middlename" placeholder="Middle name">
             <div class="form-group">
                 <label for="username">Username</label>
                 <input type="text" class="form-control" id="username" name="username" placeholder="Username">
