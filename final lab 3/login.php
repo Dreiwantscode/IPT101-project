@@ -39,9 +39,28 @@
             max-width: 400px;
             margin: auto;
             margin-top: 50px;
+            background: linear-gradient(to bottom, #87CEEB, #FFFFFF); /* Gradient sky blue to white */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
         }
         .form-group {
             margin-bottom: 20px;
+        }
+        body {
+            background-color: #f8f9fa; /* Set background color */
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .btn-primary {
+            background-color: #007bff; /* Set button background color */
+            border-color: #007bff;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3; /* Set button background color on hover */
+            border-color: #0056b3;
         }
     </style>
 </head>
@@ -64,7 +83,7 @@
             <div class="form-group">
                 <input type="password" class="form-control" name="password" placeholder="Password">
             </div>
-            <button type="submit" class="btn btn-primary">Login</button>
+            <button type="submit" class="btn btn-primary btn-block">Login</button>
         </form>
 
         <p class="mt-3">Don't have an account? <a href="signup.php">Sign up here</a></p>
@@ -72,4 +91,5 @@
     </div>
 </body>
 </html>
+
                     
