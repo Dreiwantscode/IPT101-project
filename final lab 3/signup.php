@@ -2,6 +2,7 @@
 
 require "functions.php";
 
+
 $errors = array();
 
 if($_SERVER['REQUEST_METHOD'] == "POST")
@@ -39,6 +40,9 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
             margin: auto;
             width: fit-content;
             margin-top: 200px; /* Adjust margin top as needed */
+            background: linear-gradient(to bottom right, #FFC0CB, #ffffff); /* Pink to white gradient */
+            padding: 20px;
+            border-radius: 10px;
         }
     </style>
 </head>
