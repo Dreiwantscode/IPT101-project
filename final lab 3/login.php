@@ -27,69 +27,77 @@
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        /* Add custom styles here if needed */
-        .container {
-            max-width: 400px;
-            margin: auto;
-            margin-top: 50px;
-            background: linear-gradient(to bottom, #87CEEB, #FFFFFF); /* Gradient sky blue to white */
+        /* Custom CSS styles */
+        .container-box {
+            background: linear-gradient(to bottom right, #87CEEB, #ffffff);
             padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
         }
-        .form-group {
-            margin-bottom: 20px;
-        }
-        body {
-            background-color: #f8f9fa; /* Set background color */
-        }
-        h1 {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        .btn-primary {
-            background-color: #007bff; /* Set button background color */
-            border-color: #007bff;
-        }
-        .btn-primary:hover {
-            background-color: #0056b3; /* Set button background color on hover */
-            border-color: #0056b3;
+        .btn-container {
+            margin-top: 10px;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Login</h1>
+    <section class="vh-100 gradient-custom">
+        <div class="container py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                    <div class="card bg-dark text-white" style="border-radius: 1rem;">
+                        <div class="card-body p-5 text-center">
 
-        <?php if(count($errors) > 0):?>
-            <div class="alert alert-danger">
-                <?php foreach ($errors as $error):?>
-                    <?= $error?> <br>    
-                <?php endforeach;?>
-            </div>
-        <?php endif;?>
+                            <div class="mb-md-5 mt-md-4 pb-5">
 
-        <form method="post">
-            <div class="form-group">
-                <input type="email" class="form-control" name="email" placeholder="Email">
-            </div>
-            <div class="form-group">
-                <input type="password" class="form-control" name="password" placeholder="Password">
-            </div>
-            <button type="submit" class="btn btn-primary btn-block">Login</button>
-        </form>
+                                <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
+                                <p class="text-white-50 mb-5">Please enter your login and password!</p>
 
-        <p class="mt-3">Don't have an account? <a href="signup.php">Sign up here</a></p>
-        <p>Forgot your Password? <a href="forgot_password.php">Forgot Password?</a></p>
-    </div>
+                                <form method="post">
+                                    <div data-mdb-input-init class="form-outline form-white mb-4">
+                                        <input type="email" id="typeEmailX" class="form-control form-control-lg" name="email"/>
+                                        <label class="form-label" for="typeEmailX">Email</label>
+                                    </div>
+
+                                    <div data-mdb-input-init class="form-outline form-white mb-4">
+                                        <input type="password" id="typePasswordX" class="form-control form-control-lg" name="password"/>
+                                        <label class="form-label" for="typePasswordX">Password</label>
+                                    </div>
+
+                                    <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">Forgot password? </a></p> 
+
+                                    <button data-mdb-button-init data-mdb-ripple-init class="btn btn-outline-light btn-lg px-5" type="submit">Login</button>
+                                </form>
+
+                                <div class="d-flex justify-content-center text-center mt-4 pt-1">
+                                    <a href="#!" class="text-white"><i class="fab fa-facebook-f fa-lg"></i></a>
+                                    <a href="#!" class="text-white"><i class="fab fa-twitter fa-lg mx-4 px-2"></i></a>
+                                    <a href="#!" class="text-white"><i class="fab fa-google fa-lg"></i></a>
+                                </div>
+
+                            </div>
+
+                            <div>
+                                <p class="mb-0">Don't have an account? <a href="signup.php" class="text-white-50 fw-bold">Sign Up</a></p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap JS and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
-
-                    
