@@ -22,43 +22,61 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 }
 
 ?>
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Signup</title>
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        /* Adjust the width of the form elements */
-        .form-control {
-            width: 400px; /* Adjust as needed */
-        }
-        /* Center the form horizontally */
-        .center {
-            margin: auto;
-            width: fit-content;
-            margin-top: 200px; /* Adjust margin top as needed */
-            background: linear-gradient(to bottom right, #FFC0CB, #ffffff); /* Pink to white gradient */
+        /* Custom CSS styles */
+        .container-box {
+            background-color: #CFB284; /* Cream background */
+            color: #000000; /* Black text color */
             padding: 20px;
             border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+            margin-top: 200px; /* Adjust margin top as needed */
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        body {
+            background-color: #f8f9fa; /* Set background color */
+        }
+        .btn-primary {
+            background-color: #007bff; /* Set button background color */
+            border-color: #007bff;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3; /* Set button background color on hover */
+            border-color: #0056b3;
+        }
+        .form-check-label a {
+            color: #007bff; /* Set link color */
+            text-decoration: none; /* Remove underline */
+        }
+        .form-check-label a:hover {
+            text-decoration: underline; /* Add underline on hover */
         }
     </style>
 </head>
 <body>
-    <div class="center">
+    <div class="container-box">
         <h1 class="mt-5">Signup</h1>
 
-        <div>
-            <?php if(count($errors) > 0):?>
-                <div class="alert alert-danger">
-                    <?php foreach ($errors as $error):?>
-                        <?= $error?> <br>    
-                    <?php endforeach;?>
-                </div>
-            <?php endif;?>
-        </div>
+        <?php if(count($errors) > 0):?>
+            <div class="alert alert-danger">
+                <?php foreach ($errors as $error):?>
+                    <?= $error?> <br>    
+                <?php endforeach;?>
+            </div>
+        <?php endif;?>
 
         <form method="post">
             <div class="form-group">
@@ -91,12 +109,12 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
             </div>
             <div class="form-group form-check">
                 <input type="checkbox" class="form-check-input" id="terms" name="terms">
-                <label class="form-check-label" for="terms">I agree to the <a href="#">terms and conditions and private policy</a></label>
+                <label class="form-check-label" for="terms">I agree to the <a href="#" class="text-primary">terms and conditions and private policy</a></label>
             </div>
-            <button type="submit" class="btn btn-primary">Signup</button>
+            <button type="submit" class="btn btn-primary btn-block">Signup</button>
         </form>
         
-        <p>Already have an account? <a href="login.php">Login here</a></p>
+        <p class="mt-3">Already have an account? <a href="login.php" class="text-primary">Login here</a></p>
     </div>
 
     <!-- Bootstrap JS (optional, if you need JavaScript features) -->
